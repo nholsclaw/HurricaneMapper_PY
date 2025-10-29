@@ -31,26 +31,32 @@ storm_track_points =  "memory\\track_points"
 storm_track_line = "memory\\Tracklines"
 
 # %%
-# Create a list to hold storm names
-storm_names = []
+#Create dictonary for storm names for each season
+storm_dict = {}
 
-# Create a list of storm names for a given year
-cursor = arcpy.da.SearchCursor(
-    in_table = ibtracs_NA_points,
-    where_clause = f'SEASON = {storm_season}',
-    field_names = ['NAME']
-)
+#Loop through each season
+for storm_season in range(2000,2004):
 
-# Iterate through rows in cursor
-for row in cursor:
-    #Get the storm name
-    storm_name = row[0]
-    if not storm_name in storm_names and storm_name != 'UNNAMED':
-        storm_names.append(storm_name)
+    # Create a list to hold storm names
+    storm_names = []
 
-del(cursor)
+    # Create a list of storm names for a given year
+    cursor = arcpy.da.SearchCursor(
+        in_table = ibtracs_NA_points,
+        where_clause = f'SEASON = {storm_season}',
+        field_names = ['NAME']
+    )
 
-print(storm_names)
+    # Iterate through rows in cursor
+    for row in cursor:
+        #Get the storm name
+        storm_name = row[0]
+        if not storm_name in storm_names and storm_name != 'UNNAMED':
+            storm_names.append(storm_name)
+
+    del(cursor)
+
+    storm_dict[storm_season] = storm_names
 
 # %% [markdown]
 # #### Select point features corresponding to a specific storm (season & name)
