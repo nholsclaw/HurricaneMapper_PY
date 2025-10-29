@@ -1,9 +1,9 @@
 ---
 Title: Hurricane Mapper
-Author: John.Fay@duke.edu
+Author: natalie.holsclaw@duke.edu
 Date: Fall 2025
 ---
-
+# Note: This is a forked respository. Source respository: https://github.com/ENV859/HurricaneMapper_PY.git
 # HurricaneMapper_PY
 
 This workspace contains a Python-based geoprocessing workflow of the Hurricane Mapping tool created in the Advanced Geoprocessing section of [ENV859](https://env859.github.io). 
