@@ -67,6 +67,9 @@ out_file.write('Storm_Season, Counties_Impacted\n')
 # Iterate through each season 
 for storm_season in storm_dict.keys():
 
+    #Initialize season storm counter
+    season_counter = 0
+
     #Get the list of storms in the season 
     storm_names = storm_dict[storm_season]
 
@@ -75,9 +78,6 @@ for storm_season in storm_dict.keys():
 
         #Update status
         print(f'Working on {storm_name} in {storm_season}')
-
-        #Initialize season storm counter
-        season_counter = 0
 
         #Select points for a given storm
         arcpy.analysis.Select(
